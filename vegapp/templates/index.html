@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+
+{% block start%}
+
+<div class="container mt-5">
+    <div class="text-end mb-3">
+        <a href="/add_recipe/" class="btn btn-primary">Add Recipe</a>
+    </div>
+
+    <!-- <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h2>Add recipe </h2>
+        <div class="mb-3">
+            <label for="exampleInputRecipeName" class="form-label">Recipe Name</label>
+            <input name="recipe_name" type="recipe name" class="form-control" id="recipe_name"
+                aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputRecipeName" class="form-label">Recipe Description</label>
+            <input name="recipe_description" type="recipe name" class="form-control" id="recipe_description"
+                aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="file" name="recipe_image" class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Recipe</button>
+    </form> -->
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Image</th>
+                <th scope="col" style="width: 150px;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in recipe %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ item.recipe_name }}</td>
+                <td>{{ item.recipe_description }}</td>
+                <td><img style="max-height: 80px; max-width: 100%;" src="{{ item.recipe_image.url }}" alt=""></td>
+                <td style="white-space: nowrap;">
+                    <a href="/edit_recipe/{{ item.id }}/" class="btn btn-primary me-2">Edit</a>
+                    <a href="#" class="btn btn-danger" onclick="confirmDelete({{ item.id }})">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+<script>
+    function confirmDelete(itemId) {
+        if (confirm("Are you sure you want to delete this item?")) {
+            window.location.href = "/delete_recipe/" + itemId + "/";
+        }
+    }
+    </script>
+{% endblock %}
