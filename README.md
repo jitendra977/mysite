@@ -13,7 +13,8 @@ This is a simple CRUD (Create, Read, Update, Delete) application built with Djan
 
 1. Clone the repository to your local machine:
    ```
-  git@github.com:jitendra977/mysite.git
+     git@github.com:jitendra977/mysite.git
+  
    ```
 
 2. Navigate to the project directory:
