@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block start%}
+
+<div class="container mt-5">
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="text-start mb-3">
+                <a href="/budget_home/" class="btn btn-primary">Back</a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Transactions</h5>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Add Transactions</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

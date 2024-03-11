@@ -51,6 +51,8 @@ INSTALLED_APPS = [
 ]
 EXTERNAL_APP = [
     'vegapp',
+    'employeemanagement',
+    'monthlybudget'
 ]
 INSTALLED_APPS += EXTERNAL_APP
 

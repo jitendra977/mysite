@@ -28,9 +28,7 @@ def add_recipe(request):
     else:
         form = AddForm()
 
-    queryset = Recipe.objects.all()
-    context = {'recipe':queryset}
-    
+        
     return render(request, 'add_recipe.html', {'form': form})
   
 

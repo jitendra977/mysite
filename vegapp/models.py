@@ -7,8 +7,8 @@ class Recipe(models.Model):
     recipe_description = models.TextField()
     recipe_image = models.ImageField(upload_to="recipe/")
     
-    def update_recipe(self, name, description, image):
-        self.recipe_name = name
-        self.recipe_description = description
-        self.recipe_image = image
-        self.save()
+    # def update_recipe(self, name, description, image):
+    #     self.recipe_name = name
+    #     self.recipe_description = description
+    #     self.recipe_image = image
+    #     self.save()
