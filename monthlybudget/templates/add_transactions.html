@@ -1,12 +1,8 @@
-{% extends "base.html" %}
-
-
-{% block start%}
-
-<div class="container mt-5">
-    
+{% extends 'base.html' %}
+{%block start%}
+<div class="modal-fade">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="text-start mb-3">
                 <a href="/budget_home/" class="btn btn-primary">Back</a>
             </div>
@@ -16,13 +12,11 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary">Add Transactions</button>
+                        <button type="submit" class="btn btn-primary">Add Transaction</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock %}

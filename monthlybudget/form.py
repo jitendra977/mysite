@@ -1,7 +1,11 @@
+from datetime import date, datetime ,timezone
 from django import forms
 from .models import Transactions
 
 class AddTransactionForm(forms.ModelForm):
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        self.fields['date'].initial = date.today().strftime('%Y-%m-%d')
     class Meta:
         model = Transactions
         fields = ['date', 'amount', 'description', 'category', 'payment_method']
