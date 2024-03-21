@@ -31,6 +31,9 @@ urlpatterns = [
    path('budget_home/',budget_home,name = 'budget_home'),
    path('add_transactions/',add_transactions,name='add_transactions'),
 
+   #api
+   path('api/',include('api.urls')),
+   
    
    path("admin/", admin.site.urls),
 ]
