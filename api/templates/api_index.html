@@ -1,12 +1,22 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block start %}
-<div class="container mt-5">
-    <div class="text-end mb-3">
-        <a href="/employeemanagement/add_employee/" class="btn btn-primary">Add Employee</a>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>This is the Api home </h2>
+            <p>data fetching using requests method</p>
+        </div>
         
+        <div class="col">
+            <div class="text-end mb-3">
+                <a href="/api/" target="_blank" class="btn btn-primary">VIEW API</a>
+            </div>
+        </div>
     </div>
 
+
+   
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -22,18 +32,20 @@
                 </tr>
             </thead>
             <tbody>
-                {% for emp in employee %}
+                {% for emp in employees %}
                 <tr>
                     <td>{{ emp.employee_name }}</td>
                     <td>{{ emp.employee_id }}</td>
                     <td>{{ emp.phone }}</td>
                     <td>{{ emp.address }}</td>
                     <td>{{ emp.working }}</td>
-                    <td>{{ emp.department }}</td>
-                    <td><img src="{{ emp.image.url }}" alt="{{ emp.employee_name }}" style="max-width: 100px; max-height: 100px;"></td>
+                    <td>{{ emp.position }}</td>
+                    <td><img src="{{ emp.image }}" alt="{{ emp.employee_name }}"
+                            style="max-width: 100px; max-height: 100px;"></td>
                     <td style="white-space: nowrap;">
-                        <a href="/employeemanagement/update_employee/{{emp.id}}/" class="btn btn-primary me-2">Edit</a>
-                        <a href="#" class="btn btn-danger" onclick="confirmDelete('{{ emp.id }}')">Delete</a>
+                        <a href="/update_employee/{{emp.id}}/" class="btn btn-primary me-2">Edit</a>
+                        <a href="#" class="btn btn-danger" onclick="confirmDelete('{{ emp.employee_id }}')">Delete</a>
+
                     </td>
                 </tr>
                 {% endfor %}
@@ -44,8 +56,8 @@
 <script>
     function confirmDelete(EmpId) {
         if (confirm("Are you sure you want to delete this item?")) {
-            window.location.href = "/employeemanagement/delete_employee/" + EmpId + "/";
+            window.location.href = "/api/delete/" + EmpId + "/";
         }
     }
-    </script>
+</script>
 {% endblock %}
