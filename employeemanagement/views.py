@@ -8,7 +8,7 @@ def emp_home(request):
         form = Employee(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/vegapp/')  # Redirect to a success page
+            return redirect('/employeemanagement/emp_home/')  # Redirect to a success page
     else:
         form = Employee()
 
@@ -22,7 +22,7 @@ def add_employee(request):
         form = EmployeeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/emp_home/')
+            return redirect('/employeemanagement/')
     else:
         form = EmployeeForm()  # Corrected the variable name here
     return render(request, 'add_employee.html', {'form': form})
@@ -35,7 +35,7 @@ def update_employee(request, id):
         form = EmployeeForm(request.POST, request.FILES, instance=employee)
         if form.is_valid():
             form.save()
-            return redirect('/emp_home/')
+            return redirect('/employeemanagement/emp_home/')
     else:
         form = EmployeeForm(instance=employee)
     return render(request, 'edit_employee.html', {'form': form})

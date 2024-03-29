@@ -7,7 +7,9 @@ class EmployeeForm(forms.ModelForm):
         model = Employee
         fields = ['employee_name', 'employee_id', 'phone', 'address', 'working', 'department', 'image']
 
-    def __init__(self,*args, **kwargs):
-        super(EmployeeForm,self).__init__(*args,**kwargs)
+    def __init__(self, *args, **kwargs):
+        super(EmployeeForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            visible.field.widget.attrs['class']='form-control'
+            if visible.name != 'working':  # Exclude the "working" field
+                visible.field.widget.attrs['class'] = 'form-control'
+

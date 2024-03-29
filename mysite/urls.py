@@ -22,16 +22,14 @@ urlpatterns = [
    path('delete_recipe/<int:id>/',delete_recipe,name ='delete_recipe'),
    path('edit_recipe/<int:id>/', edit_recipe, name='edit_recipe'),
 
-   path('emp_home/',emp_home,name ='emp_home'),
-   path('add_employee/',add_employee,name ='add_employee'),
-   path('update_employee/<int:id>/', update_employee, name='update_employee'),
-   path('delete_employee/<int:id>/', delete_employee, name='delete_employee'),
+   #employee
+   path('employeemanagement/',include('employeemanagement.urls')),
    
-   # budget url
-   path('budget_home/',budget_home,name = 'budget_home'),
-   path('add_transactions/',add_transactions,name='add_transactions'),
+   # include budget url -
+   path('monthlybudget/',include('monthlybudget.urls')),
+   
 
-   #api
+   #include api path
    path('api/',include('api.urls')),
    
    
